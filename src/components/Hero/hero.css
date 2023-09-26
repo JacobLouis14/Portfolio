@@ -1,0 +1,19 @@
+.wrapper{
+    position: relative; 
+    width: 100%; 
+    height: 100vh; 
+}
+.detailsContainer{
+    display: flex; 
+    position: absolute; 
+    padding-left: 10%;
+    padding-right: 15%;
+    flex-direction: row; 
+    align-items: flex-start; 
+    max-width: 80rem; 
+    top: 120px;
+    width: 100vw;
+}
+.name{
+    color: #915eff;
+}
