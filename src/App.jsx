@@ -26,7 +26,7 @@ const App = () => {
           frames={100}
           position={[5, 5, -10]}
         />
-        <ScrollControls pages={4} damping={0.25} style={{}}>
+        <ScrollControls pages={4} damping={0.25}>
           <Sparkles scale={[10, 10, 20]} count={100} size={10} />
           <ComputersCanvas />
           <Content />

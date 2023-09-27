@@ -30,7 +30,7 @@ const Computers = ({ ismobile }) => {
         .to(model.current.rotation, { y: 5.2 }, 6)
 
         .to(model.current.position, { x: -13 }, 11)
-        .to(model.current.rotation, { y: -0.1 }, 11)
+        .to(model.current.rotation, { y: 0 }, 11)
         .to(model.current.position, { z: -2, y: 1 }, 11);
     } else {
       tl.current
@@ -45,7 +45,7 @@ const Computers = ({ ismobile }) => {
         .to(model.current.rotation, { y: 0 }, 11)
         .to(model.current.position, { z: -2, y: 1 }, 11);
     }
-  }, [scroll]);
+  }, []);
 
   return (
     <group ref={model}>
@@ -95,24 +95,17 @@ const ComputerCanvas = () => {
   }, []);
 
   return (
-    // <Canvas
-    //   frameloop="demand"
-    //   shadows
-    //   camera={{ position: [20, 3, 5], fov: 25 }}
-    //   gl={{ preserveDrawingBuffer: true }}
-    // >
     <Suspense fallback={<CanvasLoader />}>
-      <OrbitControls
+      {/* <OrbitControls
         enableZoom={false}
         maxPolarAngle={Math.PI / 2}
         minPolarAngle={Math.PI / 2}
         enableRotate={false}
         mouseButtons={false}
-      />
+      /> */}
       <Computers ismobile={ismobile} />
-      <Preload all />
+      {/* <Preload all /> */}
     </Suspense>
-    // </Canvas>
   );
 };
 

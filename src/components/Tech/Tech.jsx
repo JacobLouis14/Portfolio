@@ -1,10 +1,27 @@
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 import { technologies } from "../../constants/index";
 import { BallCanvas } from "../canvas";
 import "./tech.css";
 
 const Tech = () => {
+  const [isMobile, setIsMobile] = useState(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 500px");
+    setIsMobile(mediaQuery.matches);
+
+    const mediaQueryChangeHandler = (event) => {
+      setIsMobile(event.matches);
+    };
+    mediaQuery.addEventListener("change", mediaQueryChangeHandler);
+
+    return () => {
+      mediaQuery.removeEventListener("change", mediaQueryChangeHandler);
+    };
+  }, []);
+
   return (
     <>
       <div className="techSectionWrapper">
@@ -17,7 +34,9 @@ const Tech = () => {
           <p style={{ fontWeight: 200, fontSize: 18 }}>TECH STACK</p>
           <h4 style={{ fontSize: 40 }}>Expertise</h4>
         </motion.div>
-        <div className="techModelWrapper">
+        <div
+          className={isMobile ? "techMobileModelWrapper" : "techModelWrapper"}
+        >
           {technologies.map((technologies) => (
             <motion.div
               className="techWrapper"
@@ -48,7 +67,16 @@ const Tech = () => {
                 transition: { duration: 0.5 },
               }}
             >
-              <BallCanvas icon={technologies.icon} />
+              {isMobile ? (
+                <div className="techImage">
+                  <img
+                    src={technologies.icon}
+                    onContextMenu={(e) => e.preventDefault()}
+                  />
+                </div>
+              ) : (
+                <BallCanvas icon={technologies.icon} />
+              )}
             </motion.div>
           ))}
         </div>
