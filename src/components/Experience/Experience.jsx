@@ -1,9 +1,12 @@
+import React from "react";
 import { motion } from "framer-motion";
 
 import { projects } from "../../constants/index";
 import "./experience.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
-const ProjectCards = ({ name, description, image, index }) => {
+const ProjectCards = React.memo(({ name, source_code_link, image, index }) => {
   return (
     <motion.div
       initial={{ y: 80, opacity: 0 }}
@@ -15,16 +18,18 @@ const ProjectCards = ({ name, description, image, index }) => {
       whileHover={{ scale: 1.05, transition: { duration: 0.1 } }}
       className="projectContainer"
     >
-      <div className="expImgContainer">
-        <img src={image} alt={name} className="image" />
-      </div>
       <div className="expDataContainer">
         <h4 style={{ fontSize: 20 }}>{name}</h4>
-        <p style={{ marginTop: "4%" }}>{description}</p>
+      </div>
+
+      <div className="exp-source-container">
+        <a href={source_code_link} target="_blank">
+          <FontAwesomeIcon icon={faGithub} size="2xl" />
+        </a>
       </div>
     </motion.div>
   );
-};
+});
 
 const Experience = () => {
   return (

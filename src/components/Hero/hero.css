@@ -1,19 +1,191 @@
-.wrapper{
-    position: relative; 
-    width: 100%; 
-    height: 100vh; 
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(240, 248, 255, 0.063);
+  backdrop-filter: saturate(180%) blur(5px);
 }
-.detailsContainer{
-    display: flex; 
-    position: absolute; 
-    padding-left: 10%;
-    padding-right: 15%;
-    flex-direction: row; 
-    align-items: flex-start; 
-    max-width: 80rem; 
-    top: 120px;
-    width: 100vw;
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100vw;
 }
-.name{
-    color: #915eff;
+.name {
+  color: blueviolet;
+  transform-style: preserve-3d;
+  display: flex;
+}
+.name-first {
+  transform: rotateY(-30deg);
+}
+.name-second {
+  transform: rotateY(30deg);
+  margin-left: -4rem;
+}
+.name-first span,
+.name-second span {
+  font-family: "Bebas Neue";
+  letter-spacing: 1.5rem;
+  cursor: pointer;
+  text-shadow: 2px 2px 2px antiquewhite;
+}
+/* first name */
+.name-first span:nth-child(1) {
+  font-size: 20rem;
+}
+.name-first span:nth-child(2) {
+  font-size: 18rem;
+}
+.name-first span:nth-child(3) {
+  font-size: 15rem;
+}
+.name-first span:nth-child(4) {
+  font-size: 12rem;
+}
+.name-first span:nth-child(5) {
+  font-size: 10rem;
+}
+/* second name */
+.name-second span:nth-child(1) {
+  font-size: 10rem;
+}
+.name-second span:nth-child(2) {
+  font-size: 12rem;
+}
+.name-second span:nth-child(3) {
+  font-size: 15rem;
+}
+.name-second span:nth-child(4) {
+  font-size: 18rem;
+}
+.name-second span:nth-child(5) {
+  font-size: 20rem;
+}
+
+.name-first span:hover,
+.name-second span:hover {
+  color: antiquewhite;
+  text-shadow: 2px 2px 2px blueviolet;
+}
+
+@media (max-width: 1024px) {
+  .name-first span:nth-child(1) {
+    font-size: 18rem;
+  }
+  .name-first span:nth-child(2) {
+    font-size: 15rem;
+  }
+  .name-first span:nth-child(3) {
+    font-size: 12rem;
+  }
+  .name-first span:nth-child(4) {
+    font-size: 10rem;
+  }
+  .name-first span:nth-child(5) {
+    font-size: 8rem;
+  }
+
+  /* second name */
+  .name-second span:nth-child(1) {
+    font-size: 8rem;
+  }
+  .name-second span:nth-child(2) {
+    font-size: 10rem;
+  }
+  .name-second span:nth-child(3) {
+    font-size: 12rem;
+  }
+  .name-second span:nth-child(4) {
+    font-size: 15rem;
+  }
+  .name-second span:nth-child(5) {
+    font-size: 18rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .name {
+    flex-direction: column;
+  }
+  .name-second {
+    margin-left: 0px;
+  }
+  .name-first span:nth-child(1) {
+    font-size: 10rem;
+  }
+  .name-first span:nth-child(2) {
+    font-size: 10rem;
+  }
+  .name-first span:nth-child(3) {
+    font-size: 10rem;
+  }
+  .name-first span:nth-child(4) {
+    font-size: 10rem;
+  }
+  .name-first span:nth-child(5) {
+    font-size: 10rem;
+  }
+
+  /* Second name (reverse the order of font sizes) */
+  .name-second span:nth-child(1) {
+    font-size: 10rem;
+  }
+  .name-second span:nth-child(2) {
+    font-size: 10rem;
+  }
+  .name-second span:nth-child(3) {
+    font-size: 10rem;
+  }
+  .name-second span:nth-child(4) {
+    font-size: 10rem;
+  }
+  .name-second span:nth-child(5) {
+    font-size: 10rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .name-first span,
+  .name-second span {
+    letter-spacing: 0.3rem;
+    text-shadow: 1px 1px 1px antiquewhite;
+  }
+  .name-second {
+    margin-top: -1.5rem;
+  }
+  .name-first span:nth-child(1) {
+    font-size: 5rem;
+  }
+  .name-first span:nth-child(2) {
+    font-size: 5rem;
+  }
+  .name-first span:nth-child(3) {
+    font-size: 5rem;
+  }
+  .name-first span:nth-child(4) {
+    font-size: 5rem;
+  }
+  .name-first span:nth-child(5) {
+    font-size: 5rem;
+  }
+
+  /* Second name (reverse the order of font sizes) */
+  .name-second span:nth-child(1) {
+    font-size: 5rem;
+  }
+  .name-second span:nth-child(2) {
+    font-size: 5rem;
+  }
+  .name-second span:nth-child(3) {
+    font-size: 5rem;
+  }
+  .name-second span:nth-child(4) {
+    font-size: 5rem;
+  }
+  .name-second span:nth-child(5) {
+    font-size: 5rem;
+  }
 }

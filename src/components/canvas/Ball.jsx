@@ -36,7 +36,7 @@ const Ball = (props) => {
   );
 };
 
-const BallCanvas = ({ icon }) => {
+const BallCanvas = React.memo(({ icon }) => {
   return (
     <Canvas>
       <Suspense fallback={<CanvasLoader />}>
@@ -45,6 +45,6 @@ const BallCanvas = ({ icon }) => {
       </Suspense>
     </Canvas>
   );
-};
+});
 
 export default BallCanvas;

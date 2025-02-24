@@ -18,19 +18,15 @@ import {
 
 const services = [
   {
-    title: "Web Developer",
+    title: "Frontend Dev",
     icon: web,
   },
   {
-    title: "React Native Developer",
-    icon: mobile,
-  },
-  {
-    title: "Backend Developer",
+    title: "Backend Dev",
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Deployment",
     icon: creator,
   },
 ];
@@ -82,48 +78,12 @@ const technologies = [
 const projects = [
   {
     name: "MovieBox",
-    description: `Developed a React-based website, akin to the Netflix UI, to present
-      comprehensive details on recently launched, popular, upcoming,
-      and genre-specific movies.Designed with user-friendliness in mind, the platform serves as an
-      effective hub for users seeking streamlined access to diverse movie
-      information.`,
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
-      {
-        name: "tailwind",
-        color: "pink-text-gradient",
-      },
-    ],
-    image: MovieBox,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/JacobLouis14",
   },
   {
-    name: "Demo",
-    description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
-    tags: [
-      {
-        name: "react",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "restapi",
-        color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
-    ],
+    name: "Github",
     image: jobit,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/JacobLouis14",
   },
 ];
 

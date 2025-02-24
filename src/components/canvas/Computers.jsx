@@ -1,4 +1,10 @@
-import { Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, {
+  Suspense,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF, useScroll } from "@react-three/drei";
 import gsap from "gsap";
@@ -6,7 +12,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 import CanvasLoader from "../Loader";
 
-const Computers = ({ ismobile }) => {
+const Computers = React.memo(({ ismobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
   /* Animation */
   const model = useRef();
@@ -18,39 +24,42 @@ const Computers = ({ ismobile }) => {
   });
 
   useLayoutEffect(() => {
-    tl.current = gsap.timeline({
-      defaults: { duration: 4, ease: "power1.inOut" },
-    });
-    if (ismobile) {
-      tl.current
-        .to(model.current.rotation, { y: 7 }, 0)
-        .to(model.current.rotation, { x: 0.5, z: -0.5 }, 1)
+    if (computer.scene) {
+      tl.current = gsap.timeline({
+        defaults: { duration: 4, ease: "power1.inOut" },
+      });
 
-        .to(model.current.rotation, { x: 0, z: 0 }, 6)
-        .to(model.current.rotation, { y: 5.2 }, 6)
+      if (ismobile) {
+        tl.current
+          .to(model.current.rotation, { y: 7 }, 0)
+          .to(model.current.rotation, { x: 0.5, z: -0.5 }, 1)
 
-        .to(model.current.position, { x: -13 }, 11)
-        .to(model.current.rotation, { y: 0 }, 11)
-        .to(model.current.position, { z: -2, y: 1 }, 11);
-    } else {
-      tl.current
-        .to(model.current.rotation, { y: 7 }, 0)
-        // .to(model.current.rotation, { y: 1 }, 2)
-        .to(model.current.position, { x: -10, z: 6 }, 1)
+          .to(model.current.rotation, { x: 0, z: 0 }, 6)
+          .to(model.current.rotation, { y: 5.2 }, 6)
 
-        .to(model.current.rotation, { y: -1 }, 6)
-        .to(model.current.position, { x: 5, z: -2.8 }, 6)
+          .to(model.current.position, { x: -13 }, 11)
+          .to(model.current.rotation, { y: 0 }, 11)
+          .to(model.current.position, { z: -2, y: 1 }, 11);
+      } else {
+        tl.current
+          .to(model.current.rotation, { y: 1 }, 0)
+          // .to(model.current.rotation, { y: 1 }, 2)
+          .to(model.current.position, { x: -10, z: 6 }, 1)
 
-        .to(model.current.position, { x: -8 }, 11)
-        .to(model.current.rotation, { y: 0 }, 11)
-        .to(model.current.position, { z: -2, y: 1 }, 11);
+          .to(model.current.rotation, { y: -1 }, 6)
+          .to(model.current.position, { x: 5, z: -2.8 }, 6)
+
+          .to(model.current.position, { x: -8 }, 11)
+          .to(model.current.rotation, { y: 0 }, 11)
+          .to(model.current.position, { z: -2, y: 1 }, 11);
+      }
     }
-  }, []);
+  }, [computer, ismobile]);
 
   return (
     <group ref={model}>
       <mesh>
-        <hemisphereLight
+        {/* <hemisphereLight
           intensity={1}
           groundColor={"black"}
           color={"#915eff"}
@@ -63,7 +72,8 @@ const Computers = ({ ismobile }) => {
           castShadow
           shadow-mapSize={1024}
         />
-        <pointLight intensity={1} />
+        <pointLight intensity={1} /> */}
+
         <primitive
           object={computer.scene}
           scale={ismobile ? 0.7 : 1}
@@ -73,7 +83,7 @@ const Computers = ({ ismobile }) => {
       </mesh>
     </group>
   );
-};
+});
 
 const ComputerCanvas = () => {
   const [ismobile, setIsMobile] = useState(false);
